@@ -1,0 +1,42 @@
+{% extends "AppEmpresa/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    <h1>Buscador</h1>
+  
+    <br>
+    <br>
+    <h3>Podes buscar una profesion:</h3>
+
+    <form action="/AppEmpresa/buscar/" method="GET">
+
+        <input type="text" name="profesion" id="profesion">
+
+        <input type="submit" value="Buscar">
+
+
+
+
+    </form>
+
+    
+
+    {% if emails %}
+
+    <p>Estamos buscando: {{profesion}}</p>
+
+    <ul>
+	{% for email in emails %}
+		<li> {{email.email}} </li>
+		<li> {{email.profesion}} </li>
+	{% endfor %}
+
+    </ul>
+
+    {% endif %}
+
+{% endblock %}
